@@ -1,0 +1,199 @@
+\documentclass{beamer}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{amsthm,amssymb,amsfonts,latexsym}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\setbeamertemplate{theorems}[numbered]
+\usepackage{ragged2e}
+\usetheme{Antibes}
+
+\setbeamercolor{structure}{fg=blue!90!black}
+%\usecolortheme{}
+
+\newtheorem{defi}{Definición}[section]
+\newtheorem{theo}[defi]{Teorema}
+\newtheorem{lem}[defi]{Lema}
+\newtheorem{hip}[defi]{Hipótesis}
+\newtheorem{corolary}[defi]{Corolario}
+\usepackage{breqn}
+\useoutertheme{shadow}
+\useinnertheme{circles}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\usepackage{nicefrac}
+
+%\usepackage[demo]{graphicx}% remove demo option in actual document
+\setbeamertemplate{navigation symbols}{}
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+\setbeamertemplate{caption}[numbered]
+\addtobeamertemplate{block begin}{}{\justifying}
+
+
+\title[Simulations on N-Body problems with Relativistic Corrections]{Simulations on N-Body problems with Relativistic Corrections}
+\subtitle{Stability on the restricted three bodies problem}
+\author[Julián Jiménez-Cárdenas]{Julián Jiménez-Cárdenas$^{1}$}
+\institute{$^{1}$Fundación Universitaria Konrad Lorenz, Bogotá. \and \texttt{juliano.jimenezc@konradlorenz.edu.co}}
+\date{}
+
+\begin{document}
+	\frame{\titlepage}
+	
+	\begin{frame}
+		\frametitle{Contents}
+		\tableofcontents		
+	\end{frame}
+	\section{Potential Energy}
+	\subsection{Schwarszchild de Sitter Potential}
+	\begin{frame}
+	\begin{block}{Potential Energy in Schwarszchild de Sitter metric}
+	The potential associated to the Schwarszchild de Sitter metric, is given by
+	\begin{equation}
+	U(r)=\frac{k}{r}+\frac{A}{r^2}+\frac{B}{r^3}
+	\end{equation}
+	where $k=GM$, $A=\frac{\Lambda c^2}{6}$ and $B=\frac{GML^2}{c^2}.$
+	\end{block}
+	\end{frame}
+	
+	\subsection{Augmented and Effective Potential}
+	\begin{frame}
+	\frametitle{Augmented and Effective Potential}
+	\begin{block}{Augmented Potential}
+	An infinitesimal mass in the presence of two masses $M_1,M_2$ such that $M_1+M_2=1$, with relativistic coefficients $A_1,A_2$, and oblateness parameters $B_1$ and $B_2$, respectively; has an augmented potential
+	\begin{equation}
+	U_a(r)=-\frac{1}{r}\Big( 1+\frac{A_1+A_2}{r}+\frac{B_1+B_2}{r^2}\Big)+\frac{r^2\omega^2}{2}
+	\end{equation}
+	\end{block}
+	
+	\begin{block}{Effective Potential}
+	and an effective potential
+	\begin{equation}
+	U_{eff}(r)=-\frac{1}{r}\Big( 1+\frac{A_1+A_2}{r}+\frac{B_1+B_2}{r^2}\Big)+\frac{l^2}{2r^2}
+	\end{equation}
+	\end{block}
+	\end{frame}
+	
+	\section{Critical and Stable Points}
+	\subsection{Constraints}
+	\begin{frame}
+	\frametitle{Constraint for $\omega$}
+	\begin{block}{$\omega$}
+	Under an escalation of the space, we look for the critical points located at $r=1$. For that, the equation
+	$$U'_{eff}(r)|_{r=1}=0$$
+	must holds. This implies that
+	
+	\begin{equation}
+	\omega^2=1+2(A_1+A_2)+3(B_1+B_2)
+	\end{equation}
+	\end{block}
+	\end{frame}
+	
+	\begin{frame}
+	\frametitle{Constraint for oblateness coefficients}
+	\begin{block}{Equilibrium points}
+	In order to guarantee the stability of the orbit, we look for the minimal points of the potential, \textit{i.e.}
+	
+	$$U''_{eff}(r)|_{r=1}\text{>}0,$$
+	where we get
+	\begin{equation}
+	B_1+B_2 \text{<}1/3,
+	\end{equation}
+	as expected\cite{alexander}.
+	\end{block}
+	\end{frame}
+	
+	\section{Movement Equations}
+	\subsection{Potential Energy for an infinitesimal mass}
+	
+	\begin{frame}
+	\frametitle{Restricted Three Bodies Problem}
+	\begin{block}{Problem Statement}
+	On the rotating system, the primaries are localized in $-\mu$ and $1-\mu$, and have parameters $(1\mu,B_1,A_1)$ and $(\mu,B_2,A_2)$, respectively\cite{MeyerHamilton}. The potential energy is given by
+	
+	\begin{equation}
+	U(x_1,x_2)=-(1-\mu)\Big( \frac{1}{\rho_1}+\frac{A_1}{\rho_1^2}+\frac{B_1}{\rho_1^3}\Big)-\mu\Big( \frac{1}{\rho_2}+\frac{A_2}{\rho_2^2}+\frac{B_2}{\rho_2^3}\Big)
+	\end{equation}
+	where
+	\begin{center}
+	\begin{tabular}{ccc}
+	$\rho_1=\sqrt{(x_1+\mu)^2+x_2^2}$& , & $\rho_2=\sqrt{(x_1+\mu-1)^2+x_2^2}$
+	\end{tabular}
+	\end{center}
+	\end{block}
+	\end{frame}
+	
+	\subsection{Hamiltonian}
+	\begin{frame}
+	\frametitle{Movement Equations}
+	\begin{block}{Hamiltonian}
+	Denoting $x=(x_1,x_2)$ and $y=(y_1,y_2)$, the dynamics of the rotating system are determined by the Hamiltonian
+	
+	
+$$	H(x,y)=\frac{1}{2}y^2-\omega (x_1y_2-x_2y_1)+U(x).$$
+	
+	\end{block}
+	
+	\begin{block}{Movement Equations}
+	The movement equations would be:
+	\begin{center}
+	\begin{tabular}{ccc}
+$	\dfrac{d^2 x}{dt^2}=-\omega Ky+\dfrac{\partial U(x)}{\partial x}$
+	
+&,&	
+$	\dfrac{d^2 x}{dt^2}=-\omega Ky+\dfrac{\partial U(x)}{\partial x}$
+	\end{tabular}
+	\end{center}
+	\end{block}
+	\end{frame}
+	
+	\subsection{Rotating Equilibria}
+	\begin{frame}
+	\frametitle{Rotating Equilibria}
+	
+	\begin{block}{Rotating Equilibria}
+	Additionally, the rotating equilibria are found in the points that satisfy\cite{Meyer}
+	
+	\begin{equation}\label{rotatingEquilibria}
+	-\omega^2 x+\dfrac{\partial U}{\partial x}=0.
+	\end{equation}
+	From the last equation we get a system of two equations that, due to the linear independence of the powers of $\rho_i$, can be resumed into the following equality
+	
+	\begin{equation}
+	\frac{1}{\rho_1^3}+\frac{2A_1}{\rho_1^4}+\frac{3B_1}{\rho_1^5}=	\frac{1}{\rho_2^3}+\frac{2A_1}{\rho_2^4}+\frac{3B_1}{\rho_2^5}=\omega^2
+	\end{equation}
+	\end{block}
+	\end{frame}
+	%References
+	%======================== 
+	\section{References}
+	\begin{frame}
+	\frametitle{References}
+	\begin{block}{References}
+	\begin{thebibliography}{99}
+	\bibitem{alexander} Arredondo, A., Jianguang, G., Stoica, C., Tamayo C.: On the restricted three body problem with oblate primaries, Astrophys Space Sci (2012)
+	
+	\bibitem{Meyer}Meyer, K.: Periodic Solutions of the N-Body Problem. In: Lecture
+Notes in Mathematics, vol. 1719. Springer, Berlin (1999)
+
+	\bibitem{MeyerHamilton}Meyer, K., Hall, G.: Introduction to Hamiltonian Dynamical Systems
+and the N-body Problem. Springer, New York (1992)
+	\end{thebibliography}
+	\end{block}
+	\end{frame}
+	
+	\begin{frame}
+	\frametitle{References}
+	\begin{block}{References}
+	\begin{thebibliography}{99}
+	\bibitem[4]{julian} Jiménez, J.: \textit{https://github.com/julian20250}/RelativisticPotential
+	\end{thebibliography}
+	\end{block}
+	\end{frame}
+	%=======================================================
+	\end{document}
