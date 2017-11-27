@@ -169,6 +169,40 @@ $	\dfrac{d^2 x}{dt^2}=-\omega Ky+\dfrac{\partial U(x)}{\partial x}$
 	\end{equation}
 	\end{block}
 	\end{frame}
+	
+	
+	\section{Stability}
+	\subsection{Linearization}
+	\begin{frame}
+	\begin{block}{Linearization}
+	The linearization at equilibrium is 
+	\[\begin{bmatrix}
+	0 & \omega & 1 & 0\\
+	-\omega & 0 & 0 & 1 \\
+	U_{x_1,x_1} & U_{x_1,x_2} & 0 & \omega\\
+	U_{x_1,x_2} & U_{x_2,x_2} & -\omega & 0
+	\end{bmatrix}\]
+	whose characteristic equation is 
+	\begin{dmath}
+	\lambda^4+\lambda^2(2\omega^2-U_{x_1,x_1}-U_{x_2,x_2})+U_{x_1,x_1}U_{x_2,x_2}+\omega^2(U_{x_1,x_1}+U_{x_2,x_2})-U_{x_1,x_2}^2+\omega^4=0
+	\end{dmath}
+	\end{block}
+	\end{frame}
+		
+	\subsection{Stable point's constraints}
+	\begin{frame}
+	\begin{block}{Spectral Stability}
+	Due to the characteristic polynom, in order to get spectral stability, we require
+	\begin{equation}
+	2\omega^2-U_{x_1,x_1}-U_{x_2,x_2}\text{>}0
+	\end{equation}
+	
+	\begin{dmath}
+	(2\omega^2-U_{x_1,x_1}-U_{x_2,x_2})^2-4(U_{x_1,x_1}U_{x_2,x_2}+\omega^2(U_{x_1,x_1}+U_{x_2,x_2})-U_{x_1,x_2}^2+\omega^4)\text{>}0
+	\end{dmath}
+	\end{block}
+	\end{frame}
+
 	%References
 	%======================== 
 	\section{References}
